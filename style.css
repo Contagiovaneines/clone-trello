@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f7fa;
+    padding: 20px;
+}
+
+.board {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    overflow-x: auto;
+}
+
+.column {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    min-height: 300px;
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+}
+
+.column:hover {
+    transform: translateY(-10px);
+}
+
+.column h2 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#todo {
+    background-color: #f1f8ff;
+}
+
+#doing {
+    background-color: #fff7d9;
+}
+
+#done {
+    background-color: #e9f7ef;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.card button {
+    margin-top: 10px;
+}
+
+.modal-header, .modal-body {
+    padding: 20px;
+}
+
+.modal-body {
+    background-color: #f8f9fa;
+}

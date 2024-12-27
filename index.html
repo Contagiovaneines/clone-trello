@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards Estilo Trello</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="board d-flex justify-content-start">
+            <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h2>Todo</h2>
+                <button class="btn btn-primary mb-3" onclick="openAddCardModal('todo')">Adicionar Card</button>
+            </div>
+            <div class="column" id="doing" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h2>Doing</h2>
+                <button class="btn btn-warning mb-3" onclick="openAddCardModal('doing')">Adicionar Card</button>
+            </div>
+            <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h2>Done</h2>
+                <button class="btn btn-success mb-3" onclick="openAddCardModal('done')">Adicionar Card</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Adicionar Card -->
+    <div id="addCardModal" class="modal fade" tabindex="-1" aria-labelledby="addCardModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCardModalLabel">Criar Novo Card</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addCardForm">
+                        <div class="mb-3">
+                            <label for="cardTitle" class="form-label">Título:</label>
+                            <input type="text" class="form-control" id="cardTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardDescription" class="form-label">Descrição:</label>
+                            <textarea class="form-control" id="cardDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardImage" class="form-label">Imagem:</label>
+                            <input type="file" class="form-control" id="cardImage">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Visualização de Card -->
+    <div id="viewCardModal" class="modal fade" tabindex="-1" aria-labelledby="viewCardModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewCardModalLabel">Visualizar Card</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <h4 id="viewCardTitle"></h4>
+                    <p id="viewCardDescription"></p>
+                    <img id="viewCardImage" src="" alt="Imagem do Card" class="img-fluid mb-3">
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-warning" onclick="openEditCardModal()">Editar</button>
+                        <button class="btn btn-danger" onclick="deleteCard()">Deletar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Editar Card -->
+    <div id="editCardModal" class="modal fade" tabindex="-1" aria-labelledby="editCardModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editCardModalLabel">Editar Card</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editCardForm">
+                        <div class="mb-3">
+                            <label for="editCardTitle" class="form-label">Título:</label>
+                            <input type="text" class="form-control" id="editCardTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editCardDescription" class="form-label">Descrição:</label>
+                            <textarea class="form-control" id="editCardDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editCardImage" class="form-label">Imagem:</label>
+                            <input type="file" class="form-control" id="editCardImage">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
